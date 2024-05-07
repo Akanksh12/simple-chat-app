@@ -4,7 +4,7 @@
   "description": "A very simple chat app using node http module and sqlite3",
   "main": "index.js",
   "scripts": {
-    "run": "npx nodemon ."
+    "start": "npx nodemon ."
   },
   "keywords": [
     "chat",
