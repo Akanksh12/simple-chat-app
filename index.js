@@ -27,8 +27,30 @@ const server = createServer((req, res) => {
                 return;
             }
             res.end(data);
+            return;
         })
+        return;
     }
+
+    // serve messages
+    
+    if (req.method == 'GET' && req.url == '/messages') {
+        db.serialize(() => {
+            db.all('SELECT * FROM messages', (err, data) => {
+                if(err) {
+                    console.log(err);
+                    res.statusCode = 500;
+                    res.end(err);
+                }
+                res.statusCode = 200;
+                res.setHeader('Content-Type', 'text/javascript')
+                res.end(JSON.stringify(data));
+                return;
+            })
+        })
+        return;
+    }
+
     // serve any other files available
     
     if (req.method = 'GET') {
@@ -40,8 +62,12 @@ const server = createServer((req, res) => {
                 res.end(`${req.url} not found`)
             }
             res.end(data);
+            return;
         })
+        return;
     }
+    
+
 });
 
 server.listen(port, hostname, () => {
