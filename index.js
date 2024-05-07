@@ -60,6 +60,7 @@ const server = createServer((req, res) => {
             if(err){
                 res.statusCode = 404;
                 res.end(`${req.url} not found`)
+                return;
             }
             res.setHeader('Content-Type', mime.lookup(req.url))
             res.end(data);
