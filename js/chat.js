@@ -5,6 +5,6 @@ let messages_element = document.querySelector('#messages');
     const messages = await response.json();
     console.log(messages)
     messages.forEach(message => {
-       messages_element.insertAdjacentHTML("afterbegin", `<p>${message.message}</p>`)
+       messages_element.insertAdjacentHTML("afterbegin", `<p><span>${message.message}</span></p>`)
     });
 })();
