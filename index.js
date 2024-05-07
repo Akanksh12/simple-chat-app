@@ -34,13 +34,14 @@ const server = createServer((req, res) => {
 
     // serve messages
     
-    if (req.method == 'GET' && req.url == '/messages') {
+    if (req.method == 'GET' && /\/messages/g.test(req.url)) {
         db.serialize(() => {
             db.all('SELECT * FROM messages', (err, data) => {
                 if(err) {
                     console.log(err);
                     res.statusCode = 500;
                     res.end(err);
+                    return;
                 }
                 res.statusCode = 200;
                 res.setHeader('Content-Type', 'text/javascript')
@@ -50,6 +51,20 @@ const server = createServer((req, res) => {
         })
         return;
     }
+    
+    // recieve messages
+
+   if (/\/send/g.test(req.url)) {
+       req.on('data', (data) => {
+           db.serialize(() => {
+               db.run('INSERT INTO messages (message) VALUES (?)', data.toString());
+           })
+       })
+       res.statusCode = 200;
+       res.setHeader('Content-Type', 'text/plain');
+       res.end('message added');
+       return;
+   }
 
     // serve any other files available
     
