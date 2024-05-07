@@ -5,6 +5,15 @@ const port = 6969;
 const fs = require('node:fs');
 var mime = require('mime-types');
 
+const sqlite3 = require('sqlite3').verbose();
+const db = new sqlite3.Database('db.sql', (err) => {
+    if (err != null)
+    {
+        console.log(err);
+    }
+});
+db.run('CREATE TABLE IF NOT EXISTS messages (message_id INTEGER PRIMARY KEY ASC, message TEXT);')
+
 const server = createServer((req, res) => {
     // serve index.html
     if (req.method == 'GET' &&  req.url == '/') { 
