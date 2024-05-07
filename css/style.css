@@ -41,6 +41,8 @@ span {
     margin-right: 0.25rem;
     width: 75vw;
     background-color: #303030;
+    outline: none;
+    padding-left: 0.5rem;
 }
 
 #message-input > button {
