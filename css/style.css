@@ -20,3 +20,9 @@ body {
     color: var(--text-color);
     background-color: var(--background-color);
 }
+
+span {
+    background-color: #006AFF;
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
