@@ -2,7 +2,7 @@
 {
     :root {
         --background-color: #ffffff;
-        --color: #000000;
+        --input-box-color: #b8b5b2;
         color-scheme: light;
     }
 }
@@ -11,7 +11,7 @@
 {
     :root {
         --background-color: #161616;
-        --color: #ffffff;
+        --input-box-color: #303030;
         color-scheme: dark;
     }
 }
@@ -39,10 +39,14 @@ body {
     width: 100%;
 }
 
+span {
+    color: white;
+}
+
 #message-input > input {
     margin-right: 0.25rem;
     width: 75vw;
-    background-color: #303030;
+    background-color: var(--input-box-color);
     outline: none;
     padding-left: 0.5rem;
 }
