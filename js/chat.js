@@ -5,7 +5,8 @@ async function getMessages(){
     const messages = await response.json();
     messages_element.innerHTML = '';
     messages.forEach(message => {
-       messages_element.insertAdjacentHTML("beforeend", `<p><span>${message.message}</span></p>`)
+        console.log(message)
+        messages_element.insertAdjacentHTML("beforeend", `<div id="message-${message.message_id}" class="message"><span>${message.message}</span></div>`)
     });
 }getMessages();
 

@@ -24,10 +24,12 @@ body {
     font-size: large;
 }
 
-span {
-    background-color: #006AFF;
+.message {
     border-radius: 1rem;
+    margin: 1rem;
     padding: 0.5rem;
+    background-color: #006AFF;
+    max-width: fit-content;
 }
 
 #message-input {
