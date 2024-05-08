@@ -45,14 +45,16 @@ span {
 
 #message-input > input {
     margin-right: 0.25rem;
-    width: 75vw;
+    width: 66vw;
     background-color: var(--input-box-color);
     outline: none;
     padding-left: 0.5rem;
 }
 
 #message-input > button {
-    width: 5vw;
+    height: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
     background-color: #006AFF;
 }
 
